@@ -23,13 +23,23 @@ export default function Game() {
     } else {
       description = "Go to game start";
     }
-    return (
-      <li key={move}>
-        <button className="historyButton" onClick={() => jumpTo(move)}>
-          {description}
-        </button>
-      </li>
-    );
+    if (move === currentMove) {
+      return (
+        <li key={move}>
+          <button className="currentHistoryButton" onClick={() => jumpTo(move)}>
+            {description}
+          </button>
+        </li>
+      );
+    } else {
+      return (
+        <li key={move}>
+          <button className="historyButton" onClick={() => jumpTo(move)}>
+            {description}
+          </button>
+        </li>
+      );
+    }
   });
 
   return (
